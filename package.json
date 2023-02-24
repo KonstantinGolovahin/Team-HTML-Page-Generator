@@ -1,0 +1,32 @@
+{
+  "name": "team-html-page-generator",
+  "version": "1.0.0",
+  "description": "Generates a HTML page based on user console input",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KonstantinGolovahin/Team-HTML-Page-Generator.git"
+  },
+  "keywords": [
+    "HTML",
+    "node.js"
+  ],
+  "author": "Konstantin Golovahin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KonstantinGolovahin/Team-HTML-Page-Generator/issues"
+  },
+  "homepage": "https://github.com/KonstantinGolovahin/Team-HTML-Page-Generator#readme",
+  "devDependencies": {
+    "jest": "^29.4.3"
+  },
+  "dependencies": {
+    "inquirer": "^6.5.2"
+  }
+}
