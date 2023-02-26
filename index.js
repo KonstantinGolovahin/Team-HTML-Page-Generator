@@ -74,11 +74,11 @@ const promptForNextEmployee = () => {
         switch(newEmployee) {
             case "Add an engineer":
                 promptForEngineer();
-               // console.log("Engineer")
+             
               break;
             case "Add an intern":
-                //    promptForIntern
-                console.log("intern")
+                promptForIntern();
+               
               break;
              
             default:
@@ -94,7 +94,7 @@ const promptForEngineer = () => {
 
         {
             type: 'input',
-            message: 'Please enter engineer name:',
+            message: 'Please enter employee name:',
             name: 'userName',
         },
         {
@@ -120,15 +120,45 @@ const promptForEngineer = () => {
         const engineer = new Engineer(r.userName,r.userID,r.userEmail,r.userGitHub)
         console.log(engineer)
         teamMembers.push(engineer);
-        console.log(teamMembers)
+        console.log(teamMembers);
+        promptForNextEmployee ();
         // promptForNextEmployee
     })
 }
 
 const promptForIntern = () => {
-    inquirer.prompt([{
+    inquirer.prompt([
+
+        {
+            type: 'input',
+            message: 'Please enter employee name:',
+            name: 'userName',
+        },
+        {
+            type: 'input',
+            message: 'Please enter employee ID:',
+            name: 'userID',
+        },
+        {
+            type: 'input',
+            message: 'Please enter employee email:',
+            name: 'userEmail',
+        },
+        {
+            type: 'input',
+            message: 'Please enter employee school:',
+            name: 'userSchool',
+        },
         //intern questions
-    }]).then(response => {
+    ]).then(r => {
+
+        const intern = new Intern(r.userName,r.userID,r.userEmail,r.userSchool)
+        console.log(intern)
+        teamMembers.push(intern);
+        console.log(teamMembers);
+        promptForNextEmployee ();
+
+
         // add new intern to employees array
         // promptForNextEmployee
     })
