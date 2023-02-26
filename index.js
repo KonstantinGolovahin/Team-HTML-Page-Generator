@@ -5,15 +5,17 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+// used for writing index.html
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
+// generates HTML here
 const render = require("./src/page-template.js");
 
+// array for storing team members
 const teamMembers = [];
 
-// TODO: Write Code to gather information about the development team members, and render the HTML file.
-
+// start with getting a manager
 inquirer.prompt([
 
     {
@@ -36,16 +38,13 @@ inquirer.prompt([
         message: 'Please enter employee office number:',
         name: 'userNumber',
     },
-
-
-
-    //managerquestions
+    
 ]).then(r => {
-
+// add new manager
     manager = new Manager(r.userName,r.userID,r.userEmail,r.userNumber)
-console.log(manager)
+
 teamMembers.push(manager);
-    // populate manager info
+   
      promptForNextEmployee ();
 })
 
@@ -61,9 +60,6 @@ const promptForNextEmployee = () => {
             ],
             
           },
-
-
-
        
     ]).then(response => {
 
@@ -78,12 +74,12 @@ const promptForNextEmployee = () => {
               break;
             case "Add an intern":
                 promptForIntern();
-               
+            
               break;
              
             default:
-               //    use the functionality from page-template to generate the team
-               console.log("finish")
+              // if no new members added              
+               buildPage();
           } 
         
     })
@@ -114,15 +110,15 @@ const promptForEngineer = () => {
         },
 
 
-        //engineer questions
+        
     ]).then(r => {
         // add new engineer to employees array
         const engineer = new Engineer(r.userName,r.userID,r.userEmail,r.userGitHub)
-        console.log(engineer)
+       
         teamMembers.push(engineer);
-        console.log(teamMembers);
+        
         promptForNextEmployee ();
-        // promptForNextEmployee
+       
     })
 }
 
@@ -151,19 +147,24 @@ const promptForIntern = () => {
         },
         //intern questions
     ]).then(r => {
-
+        // new intern
         const intern = new Intern(r.userName,r.userID,r.userEmail,r.userSchool)
-        console.log(intern)
+       
         teamMembers.push(intern);
-        console.log(teamMembers);
+       // ask for new team member
         promptForNextEmployee ();
 
-
-        // add new intern to employees array
-        // promptForNextEmployee
     })
 }
 
 const buildPage = () => {
+ 
+// generate actual HTML page 
+ fs.writeFile(outputPath, render(teamMembers), function (err) {
+    if (err) throw err;
+    console.log('File Saved!');
+  });
+   
 
 }
+
