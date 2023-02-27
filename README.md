@@ -2,7 +2,7 @@
 
 ## Description
  
-Simple node.js app to generate a list of team members based on a user input. 
+Simple node.js app to generate a list of team members based on a user input. Requires a Manager and some engineers and interns.
 
 
 ## Screenshot 
@@ -35,7 +35,7 @@ https://github.com/KonstantinGolovahin/Team-HTML-Page-Generator
 
 ## Credits:
 
-Stack Overflow ))
+Dan Mueller for some sudo code
 
 ## License
 
