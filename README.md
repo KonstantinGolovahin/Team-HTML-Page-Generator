@@ -21,6 +21,8 @@ https://github.com/KonstantinGolovahin/Team-HTML-Page-Generator
 
 * run "npm install" to install dependencies
 
+* ensure to generate an output folder in root directory or update output file path in code!
+
 ## Usage
 
 * Navigate to a root folder
